@@ -2,6 +2,7 @@ import React from "react";
 import Select from "react-select";
 import s from "./ThisDayInfo.module.scss";
 import cloud from "../../../../assets/images/cloud.png";
+import { ThisDayItem } from "./ThisDayItem";
 
 interface Props {}
 
@@ -36,7 +37,11 @@ export const ThisDayInfo = (props: Props) => {
   ];
   return (
     <div className={s.this__day_info}>
-      <div className={s.this__day_info_items}></div>
+      <div className={s.this__day_info_items}>
+        {items.map((item: Item) => (
+          <ThisDayItem key={item.icon_id} item={item} />
+        ))}
+      </div>
       <img className={s.cloud__img} src={cloud} alt="cloud" />
     </div>
   );
